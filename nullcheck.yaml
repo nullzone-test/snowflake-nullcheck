@@ -1,0 +1,16 @@
+# nullzone.yaml — example config
+connection: default
+
+targets:
+  - database: ANALYTICS
+    schema: CORE
+    tables:
+      - name: ORDERS
+        required_columns: [ORDER_ID, CUSTOMER_ID, ORDER_DATE, TOTAL_AMOUNT]
+        join_keys: [ORDER_ID, CUSTOMER_ID]
+      - name: CUSTOMERS
+        required_columns: [CUSTOMER_ID, EMAIL, CREATED_AT]
+        join_keys: [CUSTOMER_ID]
+      - name: EVENTS
+        required_columns: [EVENT_ID, USER_ID, EVENT_TYPE, TIMESTAMP]
+        join_keys: [EVENT_ID, USER_ID]
